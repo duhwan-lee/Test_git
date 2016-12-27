@@ -7,7 +7,7 @@
 
 
 *기울여쓰기(italic)*
-=======
+
 # iamqjin alone 
 ## push
 1. hello1
