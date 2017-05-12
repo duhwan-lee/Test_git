@@ -8,9 +8,13 @@
   (function() {
             location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
     })()
-    
+    function executeApp() {
+	var appUriScheme = "myScheme://com.vanillastep/";
+	document.location.href = appUriScheme;
+}
 </script>
 </head>
 <body>
+    <a href="#" onclick="javascript:executeApp()">IOS 앱 실행</a> <br /><br />
 </body>
 </html>
