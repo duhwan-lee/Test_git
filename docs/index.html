@@ -10,7 +10,7 @@
     var iosAppScheme = "myScheme://com.vanillastep/";
     var iosStoreUrl = "http://www.naver.com";
     var os = "";
-    
+    var 
     
     function appCall() {
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
@@ -26,9 +26,8 @@
             function() {
                 let time = new Date - openAt;
                 alert("2 : "+time);
-                if (time < 1000){
-                    alert("1 : "+time);
-                    //location.replace(iosStoreUrl);
+                if (time < 500){
+                    location.replace(iosStoreUrl);
                 }
 	 	}, 500);
         
