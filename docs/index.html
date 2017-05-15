@@ -5,16 +5,19 @@
 
 <title>Idol champ web test</title>
 <script type="text/javascript">
+    var androidAppScheme= "idolchamp://vote?vote_id=vote_84_194";
+    var androidStoreUrl = "https://play.google.com/store/apps/details?id=com.nwz.ichampclient";
+    var iosAppScheme = "myScheme://com.vanillastep/";
+    var iosStoreUrl = "http://www.naver.com";
     var os = "";
-//  (function() {
-//            location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
-//    })()
-    function executeApp() {
-	var appUriScheme = "myScheme://com.vanillastep/";
-	document.location.href = appUriScheme;
-}
-    function executeApp1() {
-        var os = "";
+
+    /*
+    //Android에서 앱실행&마켓 바로 사용할 수 있는 인텐트 방식
+    location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
+    */
+    
+    
+    function appCall() {
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
             os = "IOS";
         }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
@@ -22,36 +25,32 @@
         }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
             os = "ANDROID";
         }
+        
         var openAt = new Date;
         setTimeout(
             function() {
                 if (new Date - openAt < 1000){
                     if(os == "IOS"){
-                        location.href("http://www.naver.com");
+                        location.href(iosStoreUrl);
+                    }else if (os == "ANDROID"){
+                        location.href(androidStoreUrl);
                     }    
                 }
 	 	}, 500);
         
-        if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
-            iosAppCall();
-        }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
-            iosAppCall();
-        }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
-            location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
+        
+        if(os == "IOS"){
+            document.location.href = iosAppScheme;    
+        }else if(os == "ANDROID"){
+            document.location.href = androidAppScheme;
         }
-	//var appUriScheme = "myScheme://com.vanillastep/";
-	//document.location.href = appUriScheme;
-        //alert(navigator.userAgent.toLocaleLowerCase().search("ipad"));
 }
-    function iosAppCall(){
-        var appUriScheme = "myScheme://com.vanillastep/";
-        document.location.href = appUriScheme;    
-    }
+
+    
 </script>
 </head>
     
 <body>
-    <button onclick="executeApp()">IOS App Call</button>
-    <button onclick="executeApp1()">설치 안 된 IOS App Call</button>
+    <button onclick="appCall()">Application Call</button>
 </body>
 </html>
