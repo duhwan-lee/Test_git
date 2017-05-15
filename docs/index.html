@@ -5,6 +5,7 @@
 
 <title>Idol champ web test</title>
 <script type="text/javascript">
+    var os = "";
 //  (function() {
 //            location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
 //    })()
@@ -12,10 +13,21 @@
 	var appUriScheme = "myScheme://com.vanillastep/";
 	document.location.href = appUriScheme;
 }
+    function executeApp1() {
+        if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
+	   os = "ios";
+        }else{
+	   os = "android";
+            alert(navigator.userAgent.toLocaleLowerCase());
+}
+	//var appUriScheme = "myScheme://com.vanillastep/";
+	//document.location.href = appUriScheme;
+}
 </script>
 </head>
     
 <body>
     <button onclick="executeApp()">IOS App Call</button>
+    <button onclick="executeApp1()">설치 안 된 IOS App Call</button>
 </body>
 </html>
