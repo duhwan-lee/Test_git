@@ -10,11 +10,6 @@
     var iosAppScheme = "myScheme://com.vanillastep/";
     var iosStoreUrl = "http://www.naver.com";
     var os = "";
-
-    /*
-    //Android에서 앱실행&마켓 바로 사용할 수 있는 인텐트 방식
-    location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
-    */
     
     
     function appCall() {
@@ -32,11 +27,8 @@
                 if (new Date - openAt < 1000){
                     if(os == "IOS"){
                         alert("IOS");
-                        location.href(iosStoreUrl);
-                    }else if (os == "ANDROID"){
-                        alert("ANDROID");
-                        location.href(androidStoreUrl);
-                    }    
+                        document.location.href(iosStoreUrl);
+                    }
                 }
 	 	}, 500);
         
@@ -44,7 +36,7 @@
         if(os == "IOS"){
             location.href = iosAppScheme;    
         }else if(os == "ANDROID"){
-            location.href = androidAppScheme;
+            location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
         }
 }
 
