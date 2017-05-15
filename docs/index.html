@@ -19,11 +19,12 @@
         }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
             os = "ios";
         }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
-            os = "android";
+            location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
         }
+        
 	//var appUriScheme = "myScheme://com.vanillastep/";
 	//document.location.href = appUriScheme;
-        alert(os);
+        alert(navigator.userAgent.toLocaleLowerCase().search("android"));
 }
 </script>
 </head>
