@@ -16,25 +16,6 @@
     var os = "";
     var timeout;
     
-    function preventPopup() {
-        clearTimeout(timeout);
-        timeout = null;
-        window.removeEventListener('pagehide', preventPopup);
-    }
-    
-    function startApp() {
-        var openAt = new Date;
-        timeout = setTimeout(function(){
-            if(+new Date - openAt > 1000){
-                if(confirm('You do not seem to have the App installed, do you want to go download it now?')){
-                    document.location = iosStoreUrl;
-                }    
-            }        
-        }, 500);
-        document.location =  iosAppScheme;
-        window.addEventListener('pagehide', preventPopup);
-    }
-
     function appCall() {
 
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
@@ -46,8 +27,7 @@
         }
               
         if(os == "IOS"){
-           startApp();
-
+            location = iosAppScheme;
         }else if(os == "ANDROID"){
             document.location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
         }else{
