@@ -5,15 +5,16 @@
 
 <title>Idol champ web test</title>
 <script type="text/javascript">
+
     var androidAppScheme= "idolchamp://vote?vote_id=vote_84_194";
     var androidStoreUrl = "https://play.google.com/store/apps/details?id=com.nwz.ichampclient";
     var iosAppScheme = "myScheme://com.vanillastep/";
     var iosStoreUrl = "http://www.naver.com";
     var os = "";
      
-    
     function appCall() {
-        var openAt = +new Date;
+        var openAt = new Date;
+
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
             os = "IOS";
         }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
@@ -21,18 +22,9 @@
         }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
             os = "ANDROID";
         }
-        
-        setTimeout(
-            function() {
-                let time = +new Date - openAt;
-                if (time < 1000){
-                    location.href(iosStoreUrl);
-                }
-	 	}, 500);
-        
-        
+        installApp();
         if(os == "IOS"){
-            document.location.href = iosAppScheme;    
+            location.href = iosAppScheme;
         }else if(os == "ANDROID"){
             document.location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
         }else{
@@ -40,7 +32,15 @@
         }
 }
 
-    
+function installApp(){
+    setTimeout(function(){
+        if(new Date - openAt < 1000){
+            if(os == "IOS"){
+                location.href = androidStoreUrl;
+            }
+        }
+    },500);
+}
 </script>
 </head>
     
