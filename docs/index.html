@@ -26,12 +26,12 @@
               
         if(os == "IOS"){
             setTimeout(function(){
-                if(new Date - openAt < 1000){
+                if(new Date - openAt < 1500){
                     if(confirm('앱스토어에서 다운 받으시겠습니까')){
                         location.href = iosStoreUrl;
                     }    
                 }                
-            },50);
+            },1000);
             document.location = iosAppScheme;
         }else if(os == "ANDROID"){
             document.location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
