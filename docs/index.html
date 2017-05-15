@@ -4,6 +4,9 @@
 <meta name=”viewport” content=”initial-scale = 2.0″>
 
 <title>Idol champ web test</title>
+<iframe id="idoltester" name="idoltester" src="index.html" width="0" height="0" style="display:none"></iframe>
+
+
 <script type="text/javascript">
 
     var androidAppScheme= "idolchamp://vote?vote_id=vote_84_194";
@@ -22,25 +25,31 @@
         }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
             os = "ANDROID";
         }
-        installApp();
+              
         if(os == "IOS"){
-            location.href = iosAppScheme;
+                         setTimeout(
+      function() {
+          if ((new Date()).getTime() - visitedAt < 2000) {
+               location.href = iosStoreUrl;
+          }
+       }, 500);
+
+   setTimeout(function() { 
+        location.href =iosAppScheme;
+    }, 0);
+
         }else if(os == "ANDROID"){
             document.location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
         }else{
             alert("not mobile");
         }
 }
-
-function installApp(){
-    setTimeout(function(){
-        if(new Date - openAt < 1000){
-            if(os == "IOS"){
-                location.href = androidStoreUrl;
-            }
-        }
-    },500);
+function timeOut(){
+    if(window.confirm("Not installed - ios")){
+        location.href = iosStoreUrl;
+    }
 }
+
 </script>
 </head>
     
