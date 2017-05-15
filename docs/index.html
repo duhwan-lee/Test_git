@@ -31,8 +31,10 @@
             function() {
                 if (new Date - openAt < 1000){
                     if(os == "IOS"){
+                        alert("IOS");
                         location.href(iosStoreUrl);
                     }else if (os == "ANDROID"){
+                        alert("ANDROID");
                         location.href(androidStoreUrl);
                     }    
                 }
@@ -40,9 +42,9 @@
         
         
         if(os == "IOS"){
-            document.location.href = iosAppScheme;    
+            location.href = iosAppScheme;    
         }else if(os == "ANDROID"){
-            document.location.href = androidAppScheme;
+            location.href = androidAppScheme;
         }
 }
 
