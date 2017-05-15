@@ -10,9 +10,10 @@
     var iosAppScheme = "myScheme://com.vanillastep/";
     var iosStoreUrl = "http://www.naver.com";
     var os = "";
-    var 
+     
     
     function appCall() {
+        var openAt = new Date;
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
             os = "IOS";
         }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
@@ -21,21 +22,22 @@
             os = "ANDROID";
         }
         
-        var openAt = new Date;
         setTimeout(
             function() {
-                let time = new Date - openAt;
-                alert("2 : "+time);
-                if (time < 500){
+                let time = new Date;
+                if (time < 1000){
+                    alert(time +"+"+openAt);
                     location.replace(iosStoreUrl);
                 }
-	 	}, 500);
+	 	}, 1000);
         
         
         if(os == "IOS"){
-            location.href = iosAppScheme;    
+            document.location.href = iosAppScheme;    
         }else if(os == "ANDROID"){
-            location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
+            document.location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
+        }else{
+            alert("not mobile");
         }
 }
 
