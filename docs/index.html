@@ -23,17 +23,19 @@
     }
     
     function startApp() {
-        document.location =  iosAppScheme;
+        var openAt = new Date;
         timeout = setTimeout(function(){
-            if(confirm('You do not seem to have the App installed, do you want to go download it now?')){
-                document.location = iosStoreUrl;
-            }
-        }, 1000);
+            if(+new Date - openAt > 1000){
+                if(confirm('You do not seem to have the App installed, do you want to go download it now?')){
+                    document.location = iosStoreUrl;
+                }    
+            }        
+        }, 500);
+        document.location =  iosAppScheme;
         window.addEventListener('pagehide', preventPopup);
     }
 
     function appCall() {
-        var openAt = new Date;
 
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
             os = "IOS";
