@@ -27,10 +27,11 @@
         if(os == "IOS"){
             document.location = iosAppScheme;
             setTimeout(function(){
-                if(new Date - openAt < 1000)
-                if(confirm('앱스토어에서 ')){
-                    document.location = iosStoreUrl;
-                }
+                if(new Date - openAt < 1000){
+                    if(confirm('앱스토어에서 다운 받으시겠습니까')){
+                        document.location = iosStoreUrl;
+                    }    
+                }                
             },500);
         }else if(os == "ANDROID"){
             document.location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
