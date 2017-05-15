@@ -4,15 +4,66 @@
 <meta name=”viewport” content=”initial-scale = 2.0″>
 
 <title>Idol champ web test</title>
-<iframe id="idoltester" name="idoltester" src="index.html" width="0" height="0" style="display:none"></iframe>
 
-
+		
 <script type="text/javascript">
 
+    function call11stApp(scheme, url) {
+        var path = scheme;
+        var iosRefer = path;
+        var andRefer = path;
+        var tempAndReferForIntent = "";
+        var tempUrl = url;
+        var xsite = "";
+        var iosAddParams = "&addValues="+encodeURIComponent(JSON.stringify({"XSITE_DETAIL":""}));
+        var andAddParams = "&addValues="+JSON.stringify({"XSITE_DETAIL":""});
+        var tempCon = "&";			
+        var v_utm_source	= "네이트m_DA";		 
+        var v_utm_medium 	= "모바일DA";		 
+        var v_utm_term 		= "";			
+        var v_utm_content 	= "null";		 
+        var v_utm_campaign 	= "네이트-08번-코베아 크레센도2-프로모션-170515";		 		
+        var v_app_utm_val	= "";		
+        var v_crc			= "d4b597df6f4dae8a35f8f28f2411452e";		
+        if(v_utm_source != "" && v_utm_source != null && v_utm_source != "null"){
+            v_app_utm_val = "utm_source="+encodeURIComponent(v_utm_source);
+            if(v_utm_medium != "" && v_utm_medium != null && v_utm_medium != "null"){
+                v_app_utm_val += "&utm_medium="+encodeURIComponent(v_utm_medium);
+            }
+            if(v_utm_term != "" && v_utm_term != null && v_utm_term != "null"){
+                v_app_utm_val += "&utm_term="+encodeURIComponent(v_utm_term);
+            }
+            if(v_utm_content != "" && v_utm_content != null && v_utm_content != "null"){
+                v_app_utm_val += "&utm_content="+encodeURIComponent(v_utm_content);
+            }
+            if(v_utm_campaign != "" && v_utm_campaign != null && v_utm_campaign != "null"){
+                v_app_utm_val += "&utm_campaign="+encodeURIComponent(v_utm_campaign);
+            }
+            v_app_utm_val += "&partnerName=" + encodeURIComponent("null");
+            v_app_utm_val += "&mat_tracking_id=b7af3b3d0baccb79a6d5e00f1be26fc7";		
+        }			
+			xsite = tempCon + "XSITE=1001083813";						
+        iosRefer = "://loadurl" + path + encodeURIComponent(tempUrl) + xsite + iosAddParams + tempCon + v_app_utm_val + ((v_app_utm_val != "" ? tempCon : "") + "CRC=" + v_crc);
+			
+        andRefer = "://loadurl" + encodeURIComponent(path) + encodeURIComponent(encodeURIComponent(tempUrl) + xsite + andAddParams + tempCon + v_app_utm_val + ((v_app_utm_val != "" ? tempCon : "") + "CRC=" + v_crc));
+        
+        andRefer = andRefer + "&referrer=" + encodeURIComponent("elevenst://loadurl" + path + encodeURIComponent(tempUrl) + xsite + andAddParams + tempCon + v_app_utm_val + ((v_app_utm_val != "" ? "&" : "") + "CRC=" + v_crc));
+			
+        tempAndReferForIntent = xsite + andAddParams + tempCon + v_app_utm_val + ((v_app_utm_val != "" ? tempCon : "") + "CRC=" + v_crc);
+        
+        tempAndReferForIntent = tempAndReferForIntent + "&referrer=" + encodeURIComponent("intent://loadurl" + path + encodeURIComponent(tempUrl) + xsite + andAddParams + tempCon + v_app_utm_val + ((v_app_utm_val != "" ? "&" : "") + "CRC=" + v_crc));
+	
+        var intentScheme = '#Intent;scheme=elevenst;package=com.elevenst;end';
+        var iOsStoreUrl = 'itms-apps://itunes.apple.com/app/id397938216?mt=8';
+
+        mwapptools.web2app({ urlScheme : 'elevenst'+iosRefer, intentURI : 'intent'+iosRefer+intentScheme, storeURL: iOsStoreUrl });
+        setTimeout("window.location.replace('http://m.11st.co.kr/MW/Product/productPlanningDetail.tmall?plnDispNo=929138&code=1836&utm_source=네이트m_DA&utm_medium=모바일DA&utm_campaign=네이트-08번-코베아 크레센도2-프로모션-170515#1480215219');", 5000);
+    }
+    
     var androidAppScheme= "idolchamp://vote?vote_id=vote_84_194";
     var androidStoreUrl = "https://play.google.com/store/apps/details?id=com.nwz.ichampclient";
     var iosAppScheme = "myScheme://com.vanillastep/";
-    var iosStoreUrl = "http://www.naver.com";
+    var iosStoreUrl = "http://itunes.apple.com/app/id719376902?mt=8";
     var os = "";
     var timeout;
     
@@ -38,13 +89,8 @@
         }else{
             alert("not mobile");
         }
-}
-    
-function timeOut(){
-    if(window.confirm("Not installed - ios")){
-        location.href = iosStoreUrl;
     }
-}
+    
 
 </script>
 </head>
