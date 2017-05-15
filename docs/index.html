@@ -15,13 +15,15 @@
 }
     function executeApp1() {
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
-	   os = "ios";
-        }else{
-	   os = "android";
-            alert(navigator.userAgent.toLocaleLowerCase());
-}
+            os = "ios";
+        }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
+            os = "ios";
+        }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
+            os = "android";
+        }
 	//var appUriScheme = "myScheme://com.vanillastep/";
 	//document.location.href = appUriScheme;
+        alert(os);
 }
 </script>
 </head>
