@@ -13,7 +13,7 @@
      
     
     function appCall() {
-        var openAt = new Date;
+        var openAt = +new Date;
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
             os = "IOS";
         }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
@@ -24,7 +24,7 @@
         
         setTimeout(
             function() {
-                let time = new Date - openAt;
+                let time = +new Date - openAt;
                 if (time < 1000){
                     location.href(iosStoreUrl);
                 }
