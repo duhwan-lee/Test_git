@@ -28,6 +28,11 @@
               
         if(os == "IOS"){
             location = iosAppScheme;
+            setTimeout(function(){
+                if(confirm('You do not seem to have '+app_name+' installed, do you want to go download it now?')){
+                    document.location = iosStoreUrl;
+                }
+            },500);
         }else if(os == "ANDROID"){
             document.location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
         }else{
