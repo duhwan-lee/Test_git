@@ -24,12 +24,11 @@
         
         setTimeout(
             function() {
-                let time = new Date;
+                let time = new Date - openAt;
                 if (time < 1000){
-                    alert(time +"+"+openAt);
                     location.replace(iosStoreUrl);
                 }
-	 	}, 1000);
+	 	}, 500);
         
         
         if(os == "IOS"){
