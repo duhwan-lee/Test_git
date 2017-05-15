@@ -14,7 +14,24 @@
     var iosAppScheme = "myScheme://com.vanillastep/";
     var iosStoreUrl = "http://www.naver.com";
     var os = "";
-     
+    var timeout;
+    
+    function preventPopup() {
+        clearTimeout(timeout);
+        timeout = null;
+        window.removeEventListener('pagehide', preventPopup);
+    }
+    
+    function startApp() {
+        document.location =  iosAppScheme;
+        timeout = setTimeout(function(){
+            if(confirm('You do not seem to have the App installed, do you want to go download it now?')){
+                document.location = iosStoreUrl;
+            }
+        }, 1000);
+        window.addEventListener('pagehide', preventPopup);
+    }
+
     function appCall() {
         var openAt = new Date;
 
@@ -27,16 +44,7 @@
         }
               
         if(os == "IOS"){
-                         setTimeout(
-      function() {
-          if ((new Date()).getTime() - visitedAt < 2000) {
-               location.href = iosStoreUrl;
-          }
-       }, 500);
-
-   setTimeout(function() { 
-        location.href =iosAppScheme;
-    }, 0);
+           startApp();
 
         }else if(os == "ANDROID"){
             document.location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
@@ -44,6 +52,7 @@
             alert("not mobile");
         }
 }
+    
 function timeOut(){
     if(window.confirm("Not installed - ios")){
         location.href = iosStoreUrl;
