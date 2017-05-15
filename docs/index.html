@@ -18,8 +18,9 @@
         var openAt = new Date;
         setTimeout(
             function() {
-                if (new Date - openAt < 1000)
-                location.replace("http://www.naver.com");
+                if (new Date - openAt < 1000){
+                    location.replace("http://www.naver.com");    
+                }
 	 	}, 500);
         
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
@@ -29,7 +30,6 @@
         }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
             location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
         }
-        
 	//var appUriScheme = "myScheme://com.vanillastep/";
 	//document.location.href = appUriScheme;
         //alert(navigator.userAgent.toLocaleLowerCase().search("ipad"));
