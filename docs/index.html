@@ -14,12 +14,21 @@
 	document.location.href = appUriScheme;
 }
     function executeApp1() {
-        
+        var os = "";
+        if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
+            os = "IOS";
+        }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
+            os = "IOS";
+        }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
+            os = "ANDROID";
+        }
         var openAt = new Date;
         setTimeout(
             function() {
                 if (new Date - openAt < 1000){
-                    location.replace("http://www.naver.com");    
+                    if(os == "IOS"){
+                        location.href("http://www.naver.com");
+                    }    
                 }
 	 	}, 500);
         
