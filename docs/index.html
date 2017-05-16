@@ -43,14 +43,14 @@
         }
     }
     function parametersCall(){
-            let getUrl = "http://www.testUrl.com?type=vote&id=vote_84_194";
+            let getUrl = "http://www.testurl.com?type=vote&id=vote_84_194";
             let search = getUrl.split('?');
             let tempArr = search[1].split(`&`);
             type = (tempArr[0].split(`=`))[1];
             id = (tempArr[1].split('='))[1];
             
             androidAppScheme = androidAppScheme+type+"?"+type+"_id="+id;
-            alert(androidAppScheme);
+            alert("URL : "+getUrl+"\nScheme : "+androidAppScheme);
         }
 
 </script>
