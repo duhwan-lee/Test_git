@@ -26,14 +26,12 @@
               
         if(os == "IOS"){
             setTimeout(function(){
-                var curTime = new Date;
-                var time = curTime - openAt;
-                if(time < 2500){
-                    alert("openAt : "+openAt+ "\ncurTime :"+curTime);
+                focused = document.hasFocus();
+                if(focused){
                     if(confirm('앱스토어에서 다운 받으시겠습니까')){
                         location.href = iosStoreUrl;
-                    }    
-                }                
+                    }
+                }               
             },2000);
             document.location = iosAppScheme;
         }else if(os == "ANDROID"){
