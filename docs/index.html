@@ -8,12 +8,14 @@
 		
 <script type="text/javascript">
     
-    var androidAppScheme= "idolchamp://vote?vote_id=vote_84_194";
+    var androidAppScheme= "idolchamp://";
+    //var androidAppScheme= "idolchamp://vote?vote_id=vote_84_194";
     var androidStoreUrl = "https://play.google.com/store/apps/details?id=com.nwz.ichampclient";
     var iosAppScheme = "myScheme://com.vanillastep/";
     var iosStoreUrl = "http://itunes.apple.com/app/id719376902?mt=8";
     var os = "";
-    
+    var type = "";
+    var id = "";
     function appCall() {
         var openAt = new Date;
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
@@ -35,17 +37,20 @@
             },2000);
             document.location = iosAppScheme;
         }else if(os == "ANDROID"){
-            document.location.href="intent://login#Intent;scheme=idolchamp://vote?vote_id=vote_84_194;package=com.nwz.ichampclient;end";
+            document.location.href="intent://login#Intent;scheme="+androidAppScheme+";package=com.nwz.ichampclient;end";
         }else{
             alert("not mobile");
         }
     }
     function parametersCall(){
-            var str = "";
-            str = str + "href : " + location.href;
-            str = str + "\npath : " + location.pathname;
-            str = str + "\nsearch : " + location.search;
-            alert(str);    
+            let getUrl = "http://www.testUrl.com?type=vote&id=vote_84_194";
+            let search = getUrl.split('?');
+            let tempArr = search[1].split(`&`);
+            type = (tempArr[0].split(`=`))[1];
+            id = (tempArr[1].split('='))[1];
+            
+            androidAppScheme = androidAppScheme+type+"?"+type+"_id="+id;
+            alert(androidAppScheme);
         }
 
 </script>
