@@ -40,12 +40,19 @@
             alert("not mobile");
         }
     }
-    
+    function parametersCall(){
+            var str = "";
+            str = str + "href : " + location.href;
+            str = str + "\npath : " + location.pathname;
+            str = str + "\nsearch : " + location.search;
+            alert(str);    
+        }
 
 </script>
 </head>
     
 <body>
     <button onclick="appCall()">Application Call</button>
+    <button onclick="parametersCall()">Parameters Call</button>
 </body>
 </html>
