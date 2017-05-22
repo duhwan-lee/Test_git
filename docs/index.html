@@ -25,8 +25,7 @@
         }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
             os = "ANDROID";
         }
-           let data = "intent#intent;scheme="+androidAppScheme+";package=com.nwz.ichampclient;end";
-        alert(data);
+              
         if(os == "IOS"){
             setTimeout(function(){
                 focused = document.hasFocus();
@@ -38,8 +37,7 @@
             },2000);
             document.location = iosAppScheme;
         }else if(os == "ANDROID"){
-           
-               document.location.href=data;
+            document.location.href="intent://#Intent;scheme="+androidAppScheme+";package=com.nwz.ichampclient;end";
         }else{
             alert("not mobile");
         }
