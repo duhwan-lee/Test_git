@@ -39,23 +39,9 @@
         }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
             os = "ANDROID";
         }
-        if(os == "IOS"){
-            setTimeout(function(){
-                focused = document.hasFocus();
-                if(focused){
-                    if(confirm('앱스토어에서 다운 받으시겠습니까')){
-                        if(os == "IOS"){
-                        location.href = iosStoreUrl;    
-                        }
-                    }
-                }
-            },3000);
-            document.location = iosAppScheme;
-        }else if(os == "ANDROID"){
-           document.location.href = androidAppScheme; 
-        }else{
-            alert("not mobile");
-        }
+        
+        document.location.href = androidAppScheme; 
+       
     }
     function appCall() {
         parametersCall();
