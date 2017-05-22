@@ -55,12 +55,11 @@
             type = (tempArr[0].split(`=`))[1];
             id = (tempArr[1].split('='))[1];
             if(type == "gototab"){
-                androidAppScheme = androidAppScheme+type+"?tab_num="+id;
+                androidAppScheme = "Intent://gototab?tab_num="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;"
             }else{
-                androidAppScheme = androidAppScheme+type+"?"+type+"_id="+id;
+                //androidAppScheme = androidAppScheme+type+"?"+type+"_id="+id;
+                androidAppScheme = "Intent://"+type+"?"+type+"_id="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;"
             }
-            
-            alert("URL : "+getUrl+"\nScheme : "+androidAppScheme);
         }
 
 </script>
