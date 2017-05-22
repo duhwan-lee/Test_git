@@ -33,8 +33,8 @@
                     if(confirm('앱스토어에서 다운 받으시겠습니까')){
                         if(os == "IOS"){
                         location.href = iosStoreUrl;    
+                        }
                     }
-                }
                 }
             },2000);
             document.location = iosAppScheme;
@@ -47,7 +47,7 @@
     
     }
     function parametersCall(){
-            let getUrl = "http://www.testurl.com?type=gototab&id=4";
+            let getUrl = "http://www.testurl.com?type=quiz&id=118";
             let search = getUrl.split('?');
             let tempArr = search[1].split(`&`);
             type = (tempArr[0].split(`=`))[1];
