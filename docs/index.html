@@ -25,20 +25,23 @@
         }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
             os = "ANDROID";
         }
-              
-        if(os == "IOS"){
-            setTimeout(function(){
+              setTimeout(function(){
                 focused = document.hasFocus();
                 if(focused){
                     if(confirm('앱스토어에서 다운 받으시겠습니까')){
-                        location.href = iosStoreUrl;
+                        if(os == "IOS"){
+                        location.href = iosStoreUrl;    
+                        }else if(os == "ANDROID"){
+                        location.href = androidStoreUrl;
+                        }
+                        
                     }
                 }               
             },2000);
+        if(os == "IOS"){
             document.location = iosAppScheme;
         }else if(os == "ANDROID"){
            document.location.href = androidAppScheme; 
-            //document.location.href="intent://open#Intent;scheme="+androidAppScheme+";end";
         }else{
             alert("not mobile");
         }
