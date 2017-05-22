@@ -37,7 +37,7 @@
             },2000);
             document.location = iosAppScheme;
         }else if(os == "ANDROID"){
-            document.location.href="intent://#Intent;scheme="+androidAppScheme+";package=com.nwz.ichampclient;end";
+           document.location.href = androidAppScheme; //document.location.href="intent://#Intent;scheme="+androidAppScheme+";package=com.nwz.ichampclient;end";
         }else{
             alert("not mobile");
         }
