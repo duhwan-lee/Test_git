@@ -7,7 +7,7 @@
 </head>
     
 <body>
-    <button onclick="a()">Application Call</button>
+    <button onclick="parametersCall()">Application Call</button>
     
     <script type="text/javascript">
     var androidAppScheme= "idolchamp://";
@@ -22,6 +22,16 @@
     function parametersCall(){
         var getUrl = "http://www.testurl.com?type=quiz&id=118";
         var search = (getUrl.split('?'))[1];
+        //let search = window.location.search.substring(1);
+        var tempArr = search.split(`&`);
+        type = (tempArr[0].split(`=`))[1];
+        id = (tempArr[1].split('='))[1];
+        if(type == "gototab"){
+            androidAppScheme = "Intent://gototab?tab_num="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
+        }else{
+            androidAppScheme = "Intent://"+type+"?"+type+"_id="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
+        }
+        alert(search);
 
     }
         
