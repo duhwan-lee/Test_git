@@ -8,7 +8,7 @@
     
 <body>
     <!--<button onclick="appCall()">Application Call</button>-->
-    <button onclick="a()">Application Call</button>
+    <button onclick="parametersCall()">parametersCallpplication Call</button>
     <script type="text/javascript">
         
         
@@ -58,6 +58,7 @@
     function parametersCall(){
         var getUrl = "http://www.testurl.com?type=quiz&id=118";
         var search = (getUrl.split('?'))[1];
+        alert(search);
         //var tempArr = search.split(`&`);
         //type = (tempArr[0].split(`=`))[1];
         //id = (tempArr[1].split('='))[1];
