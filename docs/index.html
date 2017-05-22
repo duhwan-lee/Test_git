@@ -20,27 +20,8 @@
     })()
     
     function a(){
-        var getUrl = "http://www.testurl.com?type=quiz&id=118";
-        var search = (getUrl.split('?'))[1];
-        var tempArr = search.split("&");
-        type = (tempArr[0].split("="))[1];
-        id = (tempArr[1].split("="))[1];
-        if(type == "gototab"){
-            androidAppScheme = "Intent://gototab?tab_num="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
-            iosAppScheme = "idolchamp://gototab?tab_num="+id;
-        }else{
-            androidAppScheme = "Intent://"+type+"?"+type+"_id="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
-            iosAppScheme = "idolchamp://"+type+"?"+type+"_id="+type+"_"+id;
-        }
-        if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
-            os = "IOS";
-        }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
-            os = "IOS";
-        }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
-            os = "ANDROID";
-        }
         
-        document.location.href = androidAppScheme; 
+        document.location.href = "http://www.naver.com"; 
        
     }
     function appCall() {
