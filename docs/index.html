@@ -49,7 +49,7 @@
     }
     function parametersCall(){
             let getUrl = "http://www.testurl.com?type=quiz&id=118";
-            let getUrl1 = location.href.toString;
+            let getUrl1 = location.href;
             let search = getUrl.split('?');
             let tempArr = search[1].split(`&`);
             type = (tempArr[0].split(`=`))[1];
@@ -59,7 +59,7 @@
             }else{
                 androidAppScheme = "Intent://"+type+"?"+type+"_id="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
             }
-        alert(getUrl1);
+        alert(getUrl1.split('?')[1]);
 }
 
 </script>
