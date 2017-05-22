@@ -42,8 +42,9 @@
             alert("not mobile");
         }
     }
+    
     function parametersCall(){
-            let getUrl = "http://www.testurl.com?type=vote&id=vote_84_194";
+            let getUrl = "http://www.testurl.com?type=fund&id=fund_id=8";
             let search = getUrl.split('?');
             let tempArr = search[1].split(`&`);
             type = (tempArr[0].split(`=`))[1];
