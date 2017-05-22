@@ -44,13 +44,17 @@
     }
     
     function parametersCall(){
-            let getUrl = "http://www.testurl.com?type=quiz&id=118";
+            let getUrl = "http://www.testurl.com?type=gototab&id=4";
             let search = getUrl.split('?');
             let tempArr = search[1].split(`&`);
             type = (tempArr[0].split(`=`))[1];
             id = (tempArr[1].split('='))[1];
+            if(type == "gototab"){
+                androidAppScheme = androidAppScheme+type+"?tab_num="+id;
+            }else{
+                androidAppScheme = androidAppScheme+type+"?"+type+"_id="+id;
+            }
             
-            androidAppScheme = androidAppScheme+type+"?"+type+"_id="+id;
             alert("URL : "+getUrl+"\nScheme : "+androidAppScheme);
         }
 
