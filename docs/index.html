@@ -4,71 +4,16 @@
 <meta name=”viewport” content=”initial-scale = 2.0″>
 
 <title>Idol champ web test</title>
-
-		
-
 </head>
     
 <body>
     <script type="text/javascript">
     
-    var androidAppScheme= "idolchamp://";
-    var androidStoreUrl = "https://play.google.com/store/apps/details?id=com.nwz.ichampclient";
-    var iosAppScheme = "myScheme://com.vanillastep/";
-    var iosStoreUrl = "http://itunes.apple.com/app/id719376902?mt=8";
-    var os = "";
-    var type = "";
-    var id = "";
-    function appCall() {
-        parametersCall();
-        var openAt = new Date;
-        if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
-            os = "IOS";
-        }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
-            os = "IOS";
-        }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
-            os = "ANDROID";
-        }
-              
-        if(os == "IOS"){
-            setTimeout(function(){
-                focused = document.hasFocus();
-                  alert(focused);
-                if(focused){
-                    if(confirm('앱스토어에서 다운 받으시겠습니까')){
-                        if(os == "IOS"){
-                        location.href = iosStoreUrl;    
-                        }
-                    }
-                }
-            },2000);
-            document.location = iosAppScheme;
-        }else if(os == "ANDROID"){
-           document.location.href = androidAppScheme; 
-        }else{
-            alert("not mobile");
-        }
-    
-    }
-    function parametersCall(){
-            let getUrl = "http://www.testurl.com?type=quiz&id=118";
-            let search = (getUrl.split('?'))[1];
-            //let search = window.location.search.substring(1);
-            let tempArr = search.split(`&`);
-            type = (tempArr[0].split(`=`))[1];
-            id = (tempArr[1].split('='))[1];
-            if(type == "gototab"){
-                androidAppScheme = "Intent://gototab?tab_num="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
-            }else{
-                androidAppScheme = "Intent://"+type+"?"+type+"_id="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
-            }
-        alert(search);
-}
     function a(){
         window.alert("aaa");
     }
 
 </script>
-    <button onclick="appCall()">Application Call</button>
+    <button onclick="a()">Application Call</button>
 </body>
 </html>
