@@ -7,6 +7,8 @@
 </head>
     
 <body>
+    <button onclick="a()">Application Call</button>
+    
     <script type="text/javascript">
     var androidAppScheme= "idolchamp://";
     var androidStoreUrl = "https://play.google.com/store/apps/details?id=com.nwz.ichampclient";
@@ -17,16 +19,15 @@
     var id = "";
         
         
-        function parametersCall(){
-            let getUrl = "http://www.testurl.com?type=quiz&id=118";
-            let search = (getUrl.split('?'))[1];
-            alert(search);
-}
+    function parametersCall(){
+    let getUrl = "http://www.testurl.com?type=quiz&id=118";
+    let search = (getUrl.split('?'))[1];
+    }
     function a(){
         window.alert("aaa");
     }
 
 </script>
-    <button onclick="a()">Application Call</button>
+    
 </body>
 </html>
