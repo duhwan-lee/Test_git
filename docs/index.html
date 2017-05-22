@@ -24,21 +24,18 @@
         }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
             os = "ANDROID";
         }
-              setTimeout(function(){
+              
+        if(os == "IOS"){
+            setTimeout(function(){
                 focused = document.hasFocus();
                   alert(focused);
                 if(focused){
                     if(confirm('앱스토어에서 다운 받으시겠습니까')){
                         if(os == "IOS"){
                         location.href = iosStoreUrl;    
-                        }else if(os == "ANDROID"){
-                        location.href = "market://details?id=com.nwz.ichampclient"
-                        }
-                        
                     }
                 }               
             },2000);
-        if(os == "IOS"){
             document.location = iosAppScheme;
         }else if(os == "ANDROID"){
            document.location.href = "Intent://gototab?tab_num=4#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;"  
