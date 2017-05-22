@@ -9,7 +9,6 @@
 <script type="text/javascript">
     
     var androidAppScheme= "idolchamp://";
-    //var androidAppScheme= "idolchamp://fund?fund_id=8";
     var androidStoreUrl = "https://play.google.com/store/apps/details?id=com.nwz.ichampclient";
     var iosAppScheme = "myScheme://com.vanillastep/";
     var iosStoreUrl = "http://itunes.apple.com/app/id719376902?mt=8";
@@ -27,6 +26,7 @@
         }
               setTimeout(function(){
                 focused = document.hasFocus();
+                  alert(focused);
                 if(focused){
                     if(confirm('앱스토어에서 다운 받으시겠습니까')){
                         if(os == "IOS"){
