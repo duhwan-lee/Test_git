@@ -6,12 +6,9 @@
 <title>Idol champ web test</title>
 </head>
     
-<body onload="appCall();">
+<body>
     <button onclick="appCall()">Application Call</button>
     <script type="text/javascript">
-    $(document).ready( function() {
-            appCall();
-    });
     var androidAppScheme= "";
     var iosAppScheme = "";
     var iosStoreUrl = "https://itunes.apple.com/kr/app/id1185735018?mt=8";
@@ -66,7 +63,7 @@
             iosAppScheme = "idolchamp://"+type+"?"+type+"_id="+type+"_"+id;
         }
     }   
-
+    var run = appCall();
 </script>
     
 </body>
