@@ -7,7 +7,7 @@
 </head>
     
 <body>
-    <button onclick="parametersCall()">Application Call</button>
+    <button onclick="appCall()">Application Call</button>
     
     <script type="text/javascript">
     var androidAppScheme= "idolchamp://";
@@ -17,6 +17,40 @@
     var os = "";
     var type = "";
     var id = "";
+        
+    
+    function appCall() {
+        parametersCall();
+        var openAt = new Date;
+        if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
+            os = "IOS";
+        }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
+            os = "IOS";
+        }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
+            os = "ANDROID";
+        }
+              
+        if(os == "IOS"){
+            setTimeout(function(){
+                focused = document.hasFocus();
+                  alert(focused);
+                if(focused){
+                    if(confirm('앱스토어에서 다운 받으시겠습니까')){
+                        if(os == "IOS"){
+                        location.href = iosStoreUrl;    
+                        }
+                    }
+                }
+            },2000);
+            document.location = iosAppScheme;
+        }else if(os == "ANDROID"){
+           document.location.href = androidAppScheme; 
+        }else{
+            alert("not mobile");
+        }
+    
+    }
+    
         
         
     function parametersCall(){
