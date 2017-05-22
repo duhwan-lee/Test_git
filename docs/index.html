@@ -9,21 +9,19 @@
 <body onload="a();">
     <button onclick="appCall()">Application Call</button>
     <script type="text/javascript" language="JavaScript">
-    var androidAppScheme= "";
-    var iosAppScheme = "";
-    var iosStoreUrl = "https://itunes.apple.com/kr/app/id1185735018?mt=8";
-    var os = "";
-    var type = "";
-    var id = "";
-    (function(){
-        a();
-    })()
+        var androidAppScheme= "";
+        var iosAppScheme = "";
+        var iosStoreUrl = "https://itunes.apple.com/kr/app/id1185735018?mt=8";
+        var os = "";
+        var type = "";
+        var id = "";
+        (function(){
+            a();
+        })()
     
-    function a(){
-        
-        document.location.href = "http://www.naver.com"; 
-       
-    }
+        function a(){
+            document.location.href = "idolchamp://quiz?quiz_id=118"; 
+        }
     function appCall() {
         parametersCall();
         var openAt = new Date;
