@@ -6,7 +6,7 @@
 <title>Idol champ web test</title>
 </head>
     
-<body onload="appCAll();">
+<body onload="a();">
     <button onclick="appCall()">Application Call</button>
     <script type="text/javascript" language="JavaScript">
     var androidAppScheme= "";
@@ -16,9 +16,12 @@
     var type = "";
     var id = "";
     (function(){
-        appCall();
+        a();
     })()
     
+    function a(){
+        alert("bb");
+    }
     function appCall() {
         parametersCall();
         var openAt = new Date;
@@ -66,7 +69,7 @@
         }
     }   
         
-        window.onload = window.appCall();
+        window.onload = window.a();
 </script>
     
 </body>
