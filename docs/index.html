@@ -16,6 +16,7 @@
     var type = "";
     var id = "";
     function appCall() {
+        parametersCall();
         var openAt = new Date;
         if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
             os = "IOS";
@@ -48,6 +49,7 @@
     }
     function parametersCall(){
             let getUrl = "http://www.testurl.com?type=quiz&id=118";
+            let getUrl1 = location.href.toString;
             let search = getUrl.split('?');
             let tempArr = search[1].split(`&`);
             type = (tempArr[0].split(`=`))[1];
@@ -57,7 +59,7 @@
             }else{
                 androidAppScheme = "Intent://"+type+"?"+type+"_id="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
             }
-        alert(androidAppScheme);
+        alert(getUrl1);
 }
 
 </script>
@@ -65,6 +67,5 @@
     
 <body>
     <button onclick="appCall()">Application Call</button>
-    <button onclick="parametersCall()">Parameters Call</button>
 </body>
 </html>
