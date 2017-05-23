@@ -20,8 +20,10 @@
         var id = "";
         $(window).load(a());
         function a(){
-            setTimeout(function(){alert("AA");
-                                 appCall();},2000);
+            setTimeout(function(){if(confirm("OK")){
+                appCall();
+            }
+                                 },2000);
         }
         function appCall() {
             parametersCall();
