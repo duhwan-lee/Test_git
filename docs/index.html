@@ -2,77 +2,72 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name=”viewport” content=”initial-scale = 2.0″>
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
 <title>Idol champ web test</title>
 </head>
     
-<body>
-    <button onclick="appCall()" id="btn">Application Call</button>
+<body onload="initAlert();">
+    <button onclick="appCall()">Application Call</button>
     
-    <script type="text/javascript">
-    var custom = "idolchamp://gototab?tab_num=4";
-    var alt = "http://mywebsite.com/alternate/content";
-    var g_intent = "intent://scan/#Intent;scheme=idolchamp;package=com.nwz.ichampclien;end";
-    var timer;
-    var heartbeat;
-    var iframe_timer;
+    <script type="text/javascript" language="JavaScript">
+        var androidAppScheme= "";
+        var iosAppScheme = "";
+        var iosStoreUrl = "https://itunes.apple.com/kr/app/id1185735018?mt=8";
+        var os = "";
+        var type = "";
+        var id = "";
 
-    function clearTimers() {
-        clearTimeout(timer);
-        clearTimeout(heartbeat);
-        clearTimeout(iframe_timer);
-    }
-
-    function intervalHeartbeat() {
-        if (document.webkitHidden || document.hidden) {
-            clearTimers();
+        function initAlert(){
+            alert("aaaa");
+            appCall();
         }
-    }
-
-    function tryIframeApproach() {
-        var iframe = document.createElement("iframe");
-        iframe.style.border = "none";
-        iframe.style.width = "1px";
-        iframe.style.height = "1px";
-        iframe.onload = function () {
-            document.location = alt;
-        };
-        iframe.src = custom;
-        document.body.appendChild(iframe);
-    }
-
-    function tryWebkitApproach() {
-        document.location = custom;
-        timer = setTimeout(function () {
-            document.location = alt;
-        }, 2500);
-    }
-
-    function useIntent() {
-        document.location = g_intent;
-    }
-
-    function launch_app_or_alt_url(el) {
-        heartbeat = setInterval(intervalHeartbeat, 200);
-        if (navigator.userAgent.match(/Chrome/)) {
-            useIntent();
-        } else if (navigator.userAgent.match(/Firefox/)) {
-            tryWebkitApproach();
-            iframe_timer = setTimeout(function () {
-                tryIframeApproach();
-            }, 1500);
-        } else {
-            tryIframeApproach();
+        
+        function appCall() {
+            parametersCall();
+            var openAt = new Date;
+            if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
+                os = "IOS";
+            }else if(navigator.userAgent.toLocaleLowerCase().search("ipad") > -1){
+                os = "IOS";
+            }else if(navigator.userAgent.toLocaleLowerCase().search("android") > -1){
+                os = "ANDROID";
+            }
+              
+            if(os == "IOS"){
+                setTimeout(function(){
+                    focused = document.hasFocus();
+                    if(focused){
+                        if(confirm('앱스토어에서 다운 받으시겠습니까')){
+                            if(os == "IOS"){
+                                location.href = iosStoreUrl;    
+                            }
+                        }
+                    }
+                },3000);
+                document.location = iosAppScheme;
+            }else if(os == "ANDROID"){
+                document.location.href = androidAppScheme; 
+            }else{
+                alert("not mobile");
+            }
         }
-    }
-
-    $(".source_url").click(function (event) {
-        launch_app_or_alt_url($(this));
-        event.preventDefault();
-    });
+        
+        function parametersCall(){
+            var getUrl = "http://www.testurl.com?type=quiz&id=118";
+            var search = (getUrl.split('?'))[1];
+            //var search = window.location.search.substring(1);
+            var tempArr = search.split("&");
+            type = (tempArr[0].split("="))[1];
+            id = (tempArr[1].split("="))[1];
+            if(type == "gototab"){
+                androidAppScheme = "Intent://gototab?tab_num="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
+                iosAppScheme = "idolchamp://gototab?tab_num="+id;
+            }else{
+                androidAppScheme = "Intent://"+type+"?"+type+"_id="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
+                iosAppScheme = "idolchamp://"+type+"?"+type+"_id="+type+"_"+id;
+            }
+        }   
 </script>
-    
     
 </body>
 </html>
