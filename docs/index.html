@@ -8,7 +8,7 @@
 </head>
     
 <body>
-    <button onclick="appCall()" id="btn">Application Call</button>
+    <button onclick="appCall()" id="btn" name="btn">Application Call</button>
     
     <script type="text/javascript" language="JavaScript">
         
@@ -21,7 +21,7 @@
         $(window).load(a());
         function a(){
             if(window.confirm("aaa") == true){
-            document.location.href = "idolchamp://vote?vote_id=vote_84_194";     
+            document.btn.click();
             }
             
         }
