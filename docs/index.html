@@ -8,9 +8,13 @@
 </head>
     
 <body>
+    
+    
     <form name="Form1" action="#">
     <button onclick="b()" id="btn" name="btn">Application Call</button>
     </form>
+    
+    
     <script type="text/javascript" language="JavaScript">
         
         var androidAppScheme= "";
@@ -20,9 +24,11 @@
         var type = "";
         var id = "";
         $(window).load(a());
+        
         function a(){
             if(window.confirm("aaa") == true){
-            document.Form1.btn.click();
+            //document.Form1.btn.click();
+                appCall();
             }
             
         }
