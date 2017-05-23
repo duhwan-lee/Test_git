@@ -18,8 +18,12 @@
         var id = "";
 
         function initAlert(){
-            alert("aaaa");
-            appCall();
+            if(window.confirm("aaa")){
+                appCall();    
+            }else{
+                
+            }
+            
         }
         
         function appCall() {
