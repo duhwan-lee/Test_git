@@ -8,8 +8,9 @@
 </head>
     
 <body>
-    <button onclick="appCall()" id="btn" name="btn">Application Call</button>
-    
+    <form name="Form1" action="#">x
+    <button onclick="b()" id="btn" name="btn">Application Call</button>
+    </form>
     <script type="text/javascript" language="JavaScript">
         
         var androidAppScheme= "";
@@ -21,10 +22,14 @@
         $(window).load(a());
         function a(){
             if(window.confirm("aaa") == true){
-            document.btn.click();
+            document.Form1.btn.click();
             }
             
         }
+        function b(){
+            appCall();
+        }
+        
         function appCall() {
             parametersCall();
             var openAt = new Date;
