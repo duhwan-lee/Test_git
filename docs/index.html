@@ -17,7 +17,11 @@
         var os = "";
         var type = "";
         var id = "";
-        $("#btn").load(appCall());
+        $(window).load(a());
+        function a(){
+            setTimeout(function(){alert("AA");
+                                 appCall();},2000);
+        }
         function appCall() {
             parametersCall();
             var openAt = new Date;
