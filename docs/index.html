@@ -14,11 +14,15 @@
         function appCall() {
             document.location.href = "idolchamp://gototab?tab_num=4"; 
         }
-
+        function a(){
+            alert("bbbb");
+        }
+        $('#btn').bind('click',appCall());
+        
         (function(){
-            $('#btn').bind('click',function(){document.location.href = "idolchamp://gototab?tab_num=4";});
-            $('#btn').trigger('click');    
+        $('#btn').trigger('click');
         })()
+        
         
 </script>
     
