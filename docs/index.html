@@ -2,12 +2,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name=”viewport” content=”initial-scale = 2.0″>
-
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <title>Idol champ web test</title>
 </head>
     
-<body onload="initAlert();">
-    <button onclick="appCall()">Application Call</button>
+<body>
+    <button onclick="appCall()" id="btn">Application Call</button>
     
     <script type="text/javascript" language="JavaScript">
         var androidAppScheme= "";
@@ -16,16 +17,7 @@
         var os = "";
         var type = "";
         var id = "";
-
-        function initAlert(){
-            if(window.confirm("aaa")){
-                alert("VV");
-            }else{
-                
-            }
-            
-        }
-        
+        $("#btn").load(appCall());
         function appCall() {
             parametersCall();
             var openAt = new Date;
