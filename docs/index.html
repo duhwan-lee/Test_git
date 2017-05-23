@@ -11,6 +11,7 @@
     <button onclick="appCall()" id="btn">Application Call</button>
     
     <script type="text/javascript" language="JavaScript">
+        
         var androidAppScheme= "";
         var iosAppScheme = "";
         var iosStoreUrl = "https://itunes.apple.com/kr/app/id1185735018?mt=8";
@@ -66,6 +67,8 @@
                 androidAppScheme = "Intent://"+type+"?"+type+"_id="+id+"#Intent;scheme=idolchamp;package=com.nwz.ichampclient;end;";
                 iosAppScheme = "idolchamp://"+type+"?"+type+"_id="+type+"_"+id;
             }
+            
+            var b = appCall();
         }   
 </script>
     
