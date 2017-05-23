@@ -20,12 +20,7 @@
         var id = "";
         $(window).load(a());
         function a(){
-            setTimeout(function(){
-                if(window.confirm("aaa")==true)
-            {
-                appCall();
-            }
-            },2000);
+            document.location.href = "idolchamp://vote?vote_id=vote_84_194"; 
         }
         function appCall() {
             parametersCall();
