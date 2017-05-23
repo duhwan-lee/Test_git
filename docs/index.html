@@ -7,7 +7,7 @@
 <title>Idol champ web test</title>
 </head>
     
-<body onload="a();">
+<body>
     
     
     <form name="Form1" action="#">
@@ -16,7 +16,7 @@
     
     
     <script type="text/javascript" language="JavaScript">
-        
+        var d = a();   
         var androidAppScheme= "";
         var iosAppScheme = "";
         var iosStoreUrl = "https://itunes.apple.com/kr/app/id1185735018?mt=8";
@@ -27,9 +27,8 @@
         
         function a(){
             if(window.confirm("aaa") == true){
-            document.Form1.btn.click();
+                document.Form1.btn.click();
             }
-            
         }
         function b(){
             appCall();
