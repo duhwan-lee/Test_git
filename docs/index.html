@@ -2,14 +2,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name=”viewport” content=”initial-scale = 2.0″>
-
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <title>Idol champ web test</title>
 </head>
     
 <body onload="appCall();">
     <button onclick="appCall()">Application Call</button>
     <script type="text/javascript" language="JavaScript">
-
+        $(document).ready(function(){alert("aaaa");});
         function appCall() {
             document.location.href = "idolchamp://gototab?tab_num=4"; 
         }
