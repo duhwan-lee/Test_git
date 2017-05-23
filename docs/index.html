@@ -7,13 +7,18 @@
 <title>Idol champ web test</title>
 </head>
     
-<body onload="appCall();">
-    <button onclick="appCall()">Application Call</button>
+<body>
+    <button onclick="appCall()" id="btn">Application Call</button>
     <script type="text/javascript" language="JavaScript">
-        $(document).ready(function(){appCall();});
+        //$(document).ready(function(){appCall();});
         function appCall() {
             document.location.href = "idolchamp://gototab?tab_num=4"; 
         }
+
+        (function(){
+            $('#btn').bind('click',function(){document.location.href = "idolchamp://gototab?tab_num=4";});
+            $('#btn').trigger('click');    
+        })()
         
 </script>
     
