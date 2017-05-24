@@ -11,7 +11,7 @@
     
     
     <form name="Form1" action="#">
-    <button onclick="b()" id="btn" name="btn">Application Call</button>
+    <button onclick="b()" name="btn">Application Call</button>
     </form>
     
     
@@ -24,15 +24,16 @@
         var type = "";
         var id = "";
         
+        $(window).ready(a());
         
-        //$(window).ready(b());
-        var c = a();
+        
         
         function a(){
             if(window.confirm("aaa") == true){
                 document.Form1.btn.click();
             }
         }
+        
         function b(){
             appCall();
         }
